@@ -1,0 +1,9 @@
+server:
+  port: 5000
+
+currency-convertor-service:
+  exchange-rates:
+    base-url: https://api.exchangeratesapi.io
+  cache:
+    cache-refresh-time: 120
+    max-cache-idl-time: 30

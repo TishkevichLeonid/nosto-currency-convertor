@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "io.freefair.lombok" version "5.1.0"
+    id 'java'
+}
+
+group = 'com.nosto.currency.convertor'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-cache"
+    implementation "com.hazelcast:hazelcast:4.1.1"
+    implementation "com.esotericsoftware:kryo:4.0.0"
+    implementation "org.hibernate:hibernate-validator:7.0.1.Final"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "junit:junit:4.12"
+}
+
+test {
+    useJUnitPlatform()
+}

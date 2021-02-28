@@ -1,0 +1,10 @@
+.gradle
+/build
+.idea
+classes
+log
+out
+logs
+**/*.port
+**/*.pid
+*.iml
