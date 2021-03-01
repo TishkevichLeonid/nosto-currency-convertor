@@ -47,7 +47,7 @@ public class CurrencyConvertorService {
             log.error(errorMessage);
             throw new CurrencyNotSupportedException(errorMessage);
         }
-        BigDecimal resultAmount = amount.multiply(rate);
+        BigDecimal resultAmount = amount.multiply(rate).stripTrailingZeros();
         CurrencyConvertorResponseDTO currencyConvertorResponseDTO = CurrencyConvertorResponseDTO.builder()
                 .amount(resultAmount)
                 .source(source)
