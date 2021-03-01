@@ -60,7 +60,8 @@ public class CurrencyConvertorControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         CurrencyConvertorResponseDTO currencyConvertorResponseDTO =
                 objectMapper.readValue(body, CurrencyConvertorResponseDTO.class);
-        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD").multiply(BigDecimal.valueOf(1000));
+        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD")
+                .multiply(BigDecimal.valueOf(1000)).stripTrailingZeros();
 
         Assertions.assertThat(currencyConvertorResponseDTO.getAmount()).isEqualTo(convertationAmount);
         Assertions.assertThat(currencyConvertorResponseDTO.getSource()).isEqualTo("EUR");

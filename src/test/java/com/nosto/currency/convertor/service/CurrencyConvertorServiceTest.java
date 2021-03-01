@@ -34,7 +34,8 @@ public class CurrencyConvertorServiceTest {
         ExchangeRateResponseDTO exchangeRateResponseDTO = ResponsesUtil.validExchangeEURtoUSDServiceResponse();
         Mockito.when(cacheClient.get(ArgumentMatchers.anyString()))
                 .thenReturn(exchangeRateResponseDTO);
-        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD").multiply(BigDecimal.valueOf(1000));
+        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD")
+                .multiply(BigDecimal.valueOf(1000)).stripTrailingZeros();
         CurrencyConvertorResponseDTO convertorResponseDTO =
                 currencyConvertorService.convert("EUR", "USD", BigDecimal.valueOf(1000));
 
@@ -50,7 +51,8 @@ public class CurrencyConvertorServiceTest {
         ExchangeRateResponseDTO exchangeRateResponseDTO = ResponsesUtil.validExchangeEURtoUSDServiceResponse();
         Mockito.when(exchangeRatesRestClient.getExchangeRates(ArgumentMatchers.anyString()))
                 .thenReturn(exchangeRateResponseDTO);
-        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD").multiply(BigDecimal.valueOf(1000));
+        BigDecimal convertationAmount = exchangeRateResponseDTO.getRates().get("USD")
+                .multiply(BigDecimal.valueOf(1000)).stripTrailingZeros();
         CurrencyConvertorResponseDTO convertorResponseDTO =
                 currencyConvertorService.convert("EUR", "USD", BigDecimal.valueOf(1000));
 
