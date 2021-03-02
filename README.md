@@ -15,7 +15,7 @@ Or you can start the application by IDE.
 
 ***
 # AWS
-This service is deployed on Amazon and is available by url: http://nostocurrencyconvertor-env.eba-t2vbqrfm.us-east-2.elasticbeanstalk.com
+This service is deployed on AWS
 
 ***
 # API
